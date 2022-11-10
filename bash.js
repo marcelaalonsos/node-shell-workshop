@@ -6,7 +6,8 @@ process.stdout.write('prompt > ');
 
 const pwd = require("./pwd.js");
 const ls = require("./ls.js");
-const cat = require("./cat.js")
+const cat = require("./cat.js");
+const date = require("./date.js");
 // The stdin 'data' event fires after a user types in a line
 process.stdin.on('data', (data) => {
   const cmd = data.toString().trim(); //remove the newline
@@ -16,9 +17,9 @@ process.stdin.on('data', (data) => {
     ls(done);
   } else if (cmd.slice(0,4) === 'cat ') {
     cat(cmd.slice(4), done)
+  } else if (cmd === 'date'){
+    date(done);
   }
-
-
   else {
 
   process.stdout.write('You typed: ' + cmd);

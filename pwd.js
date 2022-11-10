@@ -3,7 +3,6 @@
 const { cwd } = require('node:process');
 
 
-module.exports = () => {
-  process.stdout.write(cwd());
-  process.stdout.write('\nprompt > ');
+module.exports = (done) => {
+  done(cwd());
 }
